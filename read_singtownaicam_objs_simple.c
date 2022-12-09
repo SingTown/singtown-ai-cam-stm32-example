@@ -81,7 +81,7 @@ int readByte() {
 	return byte;
 }
 
-int checkCrc(unsigned char *payload) {
+int check_crc(unsigned char *payload) {
 	unsigned char num = payload[0];
 	unsigned char crc = 0;
 	int i = 0, j = 0;
@@ -120,7 +120,7 @@ int read_singtownaicam_objs() {
 			payload[i] = byte;
 		}
 
-		if (checkCrc(payload) != 0)
+		if (check_crc(payload) != 0)
 			continue;
 
 		for (i = 0; i < num; i++) {
